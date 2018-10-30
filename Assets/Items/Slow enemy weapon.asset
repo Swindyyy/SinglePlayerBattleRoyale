@@ -9,13 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e892c8e247ad0774588b46ffec4ab448, type: 3}
-  m_Name: Fast enemy weapon
+  m_Name: Slow enemy weapon
   m_EditorClassIdentifier: 
-  name: FastEnemyWeapon
+  name: SlowEnemyWeapon
   icon: {fileID: 0}
   objectMesh: {fileID: 0}
   dropRate: 5
+  interactRadius: 3
   weaponRange: 3
-  weaponDamage: 5
-  fireRate: 2
-  timeToFireAfterReachingTarget: 3
+  weaponDamage: 15
+  fireRate: 3
+  timeToFireAfterReachingTarget: 1.5

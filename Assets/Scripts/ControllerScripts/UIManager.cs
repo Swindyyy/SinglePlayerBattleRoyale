@@ -28,6 +28,9 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     PlayerHealth playerHealth;
 
+    [SerializeField]
+    public TextMeshProUGUI interactText;
+
 
     // Use this for initialization
     void Start () {

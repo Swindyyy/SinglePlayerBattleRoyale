@@ -42,10 +42,20 @@ public class EnemyHealth : Health {
             itemToDropGameObject.transform.position = transform.position;
             itemToDropGameObject.AddComponent(typeof(MeshFilter));
             itemToDropGameObject.AddComponent(typeof(MeshRenderer));
-            SphereCollider interactionCollider = itemToDropGameObject.AddComponent(typeof(SphereCollider)) as SphereCollider;            
-            Interactable interact = itemToDropGameObject.AddComponent(typeof(Interactable)) as Interactable;
+            SphereCollider interactionCollider = itemToDropGameObject.AddComponent(typeof(SphereCollider)) as SphereCollider;
+            if (lootToDrop is WeaponItem)
+            {
+                WeaponPickUp weaponInteract = itemToDropGameObject.AddComponent(typeof(WeaponPickUp)) as WeaponPickUp;
+                weaponInteract.item = (WeaponItem)lootToDrop;
+                interactionCollider.radius = lootToDrop.interactRadius;
+            }
+            else {
+                ItemPickup itemPickUp = itemToDropGameObject.AddComponent(typeof(ItemPickup)) as ItemPickup;
+                itemPickUp.item = lootToDrop;
+                interactionCollider.radius = lootToDrop.interactRadius;
+            }
+            
             itemToDropGameObject.GetComponent<MeshFilter>().mesh = lootToDrop.objectMesh;
-            interactionCollider.radius = interact.radius;
             interactionCollider.isTrigger = true;
             
         }

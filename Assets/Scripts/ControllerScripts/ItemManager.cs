@@ -54,6 +54,7 @@ public class ItemManager : MonoBehaviour {
             if(dropSeed <=  currentCounter)
             {
                 itemToDrop = item;
+                break;
             }
         }
 

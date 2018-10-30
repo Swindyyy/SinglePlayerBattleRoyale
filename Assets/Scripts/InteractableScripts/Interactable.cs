@@ -4,10 +4,12 @@ public class Interactable : MonoBehaviour {
 
     public float radius = 3f;
 
-    Transform player;
+    public Transform player;
+
+    public bool isInRangeOfObject = false;
 
 
-    void Start()
+    public virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").gameObject.transform;
     }
@@ -19,10 +21,12 @@ public class Interactable : MonoBehaviour {
 
     void Update()
     {
-        float distance = Vector3.Distance(player.position, transform.position);
-        if(distance <= radius)
+        if (isInRangeOfObject)
         {
-
+            if (Input.GetButtonDown("Interact"))
+            {
+                Interact();
+            }
         }
     }
 
@@ -32,4 +36,13 @@ public class Interactable : MonoBehaviour {
         Gizmos.DrawWireSphere(transform.position, radius);
     }
 	
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        isInRangeOfObject = true;
+    }
+
+    public virtual void OnTriggerExit(Collider other)
+    {
+        isInRangeOfObject = false;
+    }
 }

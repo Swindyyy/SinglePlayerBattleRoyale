@@ -9,4 +9,5 @@ public class Item : ScriptableObject {
     public Sprite icon;
     public Mesh objectMesh;
     public float dropRate = 5f;
+    public float interactRadius = 1f;
 }

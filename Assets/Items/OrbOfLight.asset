@@ -15,3 +15,4 @@ MonoBehaviour:
   icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   objectMesh: {fileID: 4300128, guid: 63742edd796d522458d772b44affdf9b, type: 3}
   dropRate: 5
+  interactRadius: 0.5
