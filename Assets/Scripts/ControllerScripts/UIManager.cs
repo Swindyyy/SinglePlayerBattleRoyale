@@ -31,6 +31,12 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     public TextMeshProUGUI interactText;
 
+    [SerializeField]
+    public TextMeshProUGUI weaponName;
+
+    [SerializeField]
+    public Image weaponIcon;
+
 
     // Use this for initialization
     void Start () {
@@ -41,6 +47,8 @@ public class UIManager : MonoBehaviour {
 	void Update () {
         healthBar.value = playerHealth.GetCurrentHealth();
         healthBarText.text = playerHealth.GetCurrentHealth() + "/" + playerHealth.GetMaxHealth();
+        weaponName.text = Inventory.instance.currentWeapon.name;
+        weaponIcon.sprite = Inventory.instance.currentWeapon.icon;
 
 	}
 }

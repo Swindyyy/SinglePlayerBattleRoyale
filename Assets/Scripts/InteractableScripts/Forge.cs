@@ -14,20 +14,29 @@ public class Forge : Interactable {
     {
         base.Interact();
         Debug.Log("Interacted");
+
+        ForgeUIScript.instance.EnableForgeUI();
     }
 
     public override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
 
-        UIManager.instance.interactText.text = "Press F to use forge";
-        UIManager.instance.interactText.gameObject.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            UIManager.instance.interactText.text = "Press F to use forge";
+            UIManager.instance.interactText.gameObject.SetActive(true);
+        }
     }
 
     public override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
 
-        UIManager.instance.interactText.gameObject.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            UIManager.instance.interactText.gameObject.SetActive(false);
+            ForgeUIScript.instance.DisableForgeUI();
+        }
     }
 }

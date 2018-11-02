@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf364ce5dfd4a2642b2e23a5ef41987a, type: 3}
+  m_Name: CelestialPistolRecipe
+  m_EditorClassIdentifier: 
+  itemsNeededToCraft:
+  - {fileID: 11400000, guid: f54a84a1512c7fe4694c67ca7b00a112, type: 2}
+  - {fileID: 11400000, guid: e9b49a7d57c28924b9159117c1b10ca7, type: 2}
+  - {fileID: 11400000, guid: 95c554b5ecff6964f9a00b0ef47047b3, type: 2}
+  craftedItem: {fileID: 11400000, guid: 21338196fde054742ad51e3bcb1c03a2, type: 2}

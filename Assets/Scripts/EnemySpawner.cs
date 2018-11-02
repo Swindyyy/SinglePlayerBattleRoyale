@@ -23,12 +23,11 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField]
     int numOfSlowEnemiesToSpawn;
 
-    List<GameObject> spawnPoints = new List<GameObject>();
-
+    List<GameObject> enemySpawnPoints = new List<GameObject>();
 
 	// Use this for initialization
 	void Start () {
-        spawnPoints.AddRange(GameObject.FindGameObjectsWithTag("SpawnPoint"));
+        enemySpawnPoints.AddRange(GameObject.FindGameObjectsWithTag("EnemySpawnPoint"));
 	}
 	
 	// Update is called once per frame
@@ -97,13 +96,13 @@ public class EnemySpawner : MonoBehaviour {
 
     GameObject ChooseSpawnPoint()
     {
-        int spawnPointToPick = Random.Range(0, spawnPoints.Count);
+        int spawnPointToPick = Random.Range(0, enemySpawnPoints.Count);
 
-        if (spawnPoints[spawnPointToPick] != null)
+        if (enemySpawnPoints[spawnPointToPick] != null)
         {
-            if (!spawnPoints[spawnPointToPick].GetComponent<SpawnPoint>().GetIsOccupied())
+            if (!enemySpawnPoints[spawnPointToPick].GetComponent<SpawnPoint>().GetIsOccupied())
             {
-                return spawnPoints[spawnPointToPick];
+                return enemySpawnPoints[spawnPointToPick];
             } else
             {
                 return ChooseSpawnPoint();

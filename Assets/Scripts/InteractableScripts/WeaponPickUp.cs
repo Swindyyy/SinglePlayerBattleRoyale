@@ -15,21 +15,38 @@ public class WeaponPickUp : Interactable {
     public override void Interact()
     {
         base.Interact();
-        Debug.Log("Interacted");
+
+
+            EquipWeapon();
+            Destroy(this.gameObject);
+            UIManager.instance.interactText.gameObject.SetActive(false);
+
     }
 
     public override void OnTriggerEnter(Collider other)
     {
         base.OnTriggerEnter(other);
 
-        UIManager.instance.interactText.text = "Press F to equip " + item.name;
-        UIManager.instance.interactText.gameObject.SetActive(true);
+        if (other.CompareTag("Player"))
+        {
+            UIManager.instance.interactText.text = "Press F to equip " + item.name;
+            UIManager.instance.interactText.gameObject.SetActive(true);
+        }
     }
 
     public override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
 
-        UIManager.instance.interactText.gameObject.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            UIManager.instance.interactText.gameObject.SetActive(false);
+            Inventory.instance.SetCurrentFloorItem(null);
+        }
+    }
+
+    void EquipWeapon()
+    {
+        Inventory.instance.AddWeapon(item);
     }
 }

@@ -16,24 +16,27 @@ public class ItemManager : MonoBehaviour {
         }
 
         instance = this;
+
+        foreach (Ingredient item in items)
+        {
+            totalDropRate += item.dropRate;
+        }
     }
 
     #endregion
 
     [SerializeField]
-    List<Item> items;
+    public List<Ingredient> items;
 
     [SerializeField]
     List<Recipe> recipes;
 
+    [SerializeField]
     float totalDropRate;
     
     // Use this for initialization
     void Start () {
-        foreach (Item item in items)
-        {
-            totalDropRate += item.dropRate; 
-        }
+
     }
 
     // Update is called once per frame
@@ -41,23 +44,30 @@ public class ItemManager : MonoBehaviour {
 		
 	}
 
-    public Item ChooseItemToDrop()
+    public Ingredient ChooseItemToDrop()
     {
-        Item itemToDrop = null;
+        Ingredient itemToDrop = null;
 
         float dropSeed = Random.Range(0, totalDropRate);
         float currentCounter = 0;
 
-        foreach(Item item in items)
+       
+        foreach(Ingredient item in items)
         {
             currentCounter += item.dropRate;
-            if(dropSeed <=  currentCounter)
+            if(dropSeed <= currentCounter)
             {
                 itemToDrop = item;
                 break;
             }
         }
-
+        
         return itemToDrop;
     }
+
+    public List<Recipe> GetRecipesInGame()
+    {
+        return recipes;
+    }
+
 }

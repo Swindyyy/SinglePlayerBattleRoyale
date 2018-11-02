@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0f4e3a3b8d4c874da7216b2c7e43d4b, type: 3}
+  m_Name: Metal blade
+  m_EditorClassIdentifier: 
+  name: Metal Blade
+  icon: {fileID: 0}
+  objectMesh: {fileID: 0}
+  dropRate: 5
+  interactRadius: 0.3
+  itemObject: {fileID: 0}
+  description: It's a metal blade. What more must I say?

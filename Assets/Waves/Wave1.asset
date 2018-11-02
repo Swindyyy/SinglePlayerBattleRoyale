@@ -11,10 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60b411b2b6854e4b8da286f26d7bd24, type: 3}
   m_Name: Wave1
   m_EditorClassIdentifier: 
-  numOfFastEnemies: 1
-  numOfSlowEnemies: 5
+  numOfFastEnemies: 0
+  numOfSlowEnemies: 3
   waveShrinkTime: 0
   fogDamage: 1
-  dayLength: 10
+  dayLength: 45
   isFogPresent: 0
   fogCoveragePercentage: 0

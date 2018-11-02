@@ -8,6 +8,8 @@ TagManager:
   - WeaponAnchor
   - SpawnPoint
   - Fog
+  - EnemySpawnPoint
+  - LootSpawnPoint
   layers:
   - Default
   - TransparentFX

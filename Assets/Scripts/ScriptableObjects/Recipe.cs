@@ -5,12 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Recipe", menuName = "Forge/Recipe")]
 public class Recipe : ScriptableObject {
 
-    Item firstItem;
-    int firstItemAmount;
+    public List<Ingredient> ingredientsNeededToCraft = new List<Ingredient>();
 
-    Item secondItem;
-    int secondItemAmount;
-
-    Item craftedItem;
+    public Ingredient craftedItem;
 
 }

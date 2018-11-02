@@ -15,6 +15,6 @@ MonoBehaviour:
   numOfSlowEnemies: 25
   waveShrinkTime: 10
   fogDamage: 5
-  dayLength: 10
+  dayLength: 25
   isFogPresent: 1
   fogCoveragePercentage: 0.5

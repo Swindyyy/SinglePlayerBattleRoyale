@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e892c8e247ad0774588b46ffec4ab448, type: 3}
+  m_Name: Spectral Dagger
+  m_EditorClassIdentifier: 
+  name: Spectral Dagger
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  objectMesh: {fileID: 4300000, guid: 9d0d902f71acfe646a46cb625f815a49, type: 3}
+  dropRate: 0.3
+  interactRadius: 0.3
+  itemObject: {fileID: 0}
+  description: Don't get too close to this enchant blade, else risk being hurt!
+  weaponRange: 2
+  weaponDamage: 33
+  fireRate: 1
+  timeToFireAfterReachingTarget: 0
+  isDefaultWeapon: 1

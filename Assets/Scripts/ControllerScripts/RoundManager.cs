@@ -21,6 +21,21 @@ public class RoundManager : MonoBehaviour {
     [SerializeField]
     float dayTimeRemaining;
 
+    [SerializeField]
+    Light dayLight;
+
+    [SerializeField]
+    float dayLightStrength = 1;
+
+    [SerializeField]
+    Light nightLight;   
+
+    [SerializeField]
+    float nightLightStrength = 0.1f;
+
+    [SerializeField]
+    float dayNightSwitchTime = 1f;
+
     Vector3 currentFogScale;
     Vector3 targetFogScale;
 
@@ -63,6 +78,7 @@ public class RoundManager : MonoBehaviour {
         if(numOfEnemiesRemaining == 0 && !isDayTime && !enemySpawner.GetAreEnemiesSpawning())
         {
             isDayTime = true;
+            StartCoroutine(FadeInDay());
         }
 	}
 
@@ -106,6 +122,7 @@ public class RoundManager : MonoBehaviour {
         enemySpawner.EnemiesToSpawn(currentWave.numOfFastEnemies, currentWave.numOfSlowEnemies);
         enemySpawner.SetAreEnemiesSpawning(true);
         isDayTime = false;
+        StartCoroutine(FadeInNight());
 
         fog.SetActive(currentWave.isFogPresent);
         currentFogScale = fog.transform.localScale;
@@ -134,5 +151,58 @@ public class RoundManager : MonoBehaviour {
     public int GetCurrentWaveDamage()
     {
         return currentWave.fogDamage;
+    }
+
+    IEnumerator FadeInNight()
+    {
+        float nightFadeStep = nightLightStrength / dayNightSwitchTime;
+        float lightFadeStep = dayLight.intensity / dayNightSwitchTime;
+        float timeCounter = 0f;
+
+        while (timeCounter <= dayNightSwitchTime)
+        {
+            if (nightLight.intensity <= nightLightStrength)
+            {
+                nightLight.intensity += nightFadeStep;
+
+            }
+
+            if (dayLight.intensity >= 0)
+            {
+                dayLight.intensity -= lightFadeStep;
+            }
+
+            yield return null;
+            timeCounter += Time.deltaTime;
+        }
+
+        nightLight.intensity = nightLightStrength;
+        dayLight.intensity = 0;
+    }
+
+    IEnumerator FadeInDay()
+    {
+        float nightFadeStep = nightLight.intensity / dayNightSwitchTime;
+        float lightFadeStep = dayLightStrength / dayNightSwitchTime;
+        float timeCounter = 0f;
+
+        while (timeCounter <= dayNightSwitchTime)
+        {
+            if (nightLight.intensity >= 0)
+            {
+                nightLight.intensity -= nightFadeStep;
+            }
+
+            if (dayLight.intensity <= dayLightStrength)
+            {
+                dayLight.intensity += lightFadeStep;
+            }
+
+            yield return null;
+            timeCounter += Time.deltaTime;
+        }
+
+        nightLight.intensity = 0;
+        dayLight.intensity = dayLightStrength;
     }
 }  

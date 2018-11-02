@@ -6,7 +6,9 @@ public class Interactable : MonoBehaviour {
 
     public Transform player;
 
-    public bool isInRangeOfObject = false;
+    public bool isPlayerInRangeOfObject = false;
+
+    public bool isInteractable = true;
 
 
     public virtual void Start()
@@ -21,7 +23,7 @@ public class Interactable : MonoBehaviour {
 
     void Update()
     {
-        if (isInRangeOfObject)
+        if (isPlayerInRangeOfObject)
         {
             if (Input.GetButtonDown("Interact"))
             {
@@ -38,11 +40,17 @@ public class Interactable : MonoBehaviour {
 	
     public virtual void OnTriggerEnter(Collider other)
     {
-        isInRangeOfObject = true;
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRangeOfObject = true;
+        }
     }
 
     public virtual void OnTriggerExit(Collider other)
     {
-        isInRangeOfObject = false;
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInRangeOfObject = false;
+        }
     }
 }

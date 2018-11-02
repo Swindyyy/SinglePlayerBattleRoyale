@@ -30,4 +30,19 @@ public class PlayerHealth : Health {
             currentHealth = maxHealth;
         }
     }
+
+    /* 
+ * Returns true if heal was able to occur.
+ * Returns false if already at max health
+ */
+    public bool CanPlayerHeal()
+    {
+        if (currentHealth == maxHealth)
+        {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
 }

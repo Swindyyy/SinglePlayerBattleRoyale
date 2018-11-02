@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyHealth : Health {
 
 
-    public Item lootToDrop;
+    public Ingredient lootToDrop;
 
 
 	// Use this for initialization
@@ -38,26 +38,8 @@ public class EnemyHealth : Health {
         if (lootToDrop != null)
         {
             Debug.Log("Dropping " + lootToDrop.name);
-            GameObject itemToDropGameObject = new GameObject(lootToDrop.name);
-            itemToDropGameObject.transform.position = transform.position;
-            itemToDropGameObject.AddComponent(typeof(MeshFilter));
-            itemToDropGameObject.AddComponent(typeof(MeshRenderer));
-            SphereCollider interactionCollider = itemToDropGameObject.AddComponent(typeof(SphereCollider)) as SphereCollider;
-            if (lootToDrop is WeaponItem)
-            {
-                WeaponPickUp weaponInteract = itemToDropGameObject.AddComponent(typeof(WeaponPickUp)) as WeaponPickUp;
-                weaponInteract.item = (WeaponItem)lootToDrop;
-                interactionCollider.radius = lootToDrop.interactRadius;
-            }
-            else {
-                ItemPickup itemPickUp = itemToDropGameObject.AddComponent(typeof(ItemPickup)) as ItemPickup;
-                itemPickUp.item = lootToDrop;
-                interactionCollider.radius = lootToDrop.interactRadius;
-            }
-            
-            itemToDropGameObject.GetComponent<MeshFilter>().mesh = lootToDrop.objectMesh;
-            interactionCollider.isTrigger = true;
-            
+
+            lootToDrop.CreateItem(transform.position);           
         }
     }
 }
