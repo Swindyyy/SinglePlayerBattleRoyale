@@ -40,15 +40,18 @@ public class UIManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         healthBar.value = playerHealth.GetCurrentHealth();
         healthBarText.text = playerHealth.GetCurrentHealth() + "/" + playerHealth.GetMaxHealth();
-        weaponName.text = Inventory.instance.currentWeapon.name;
-        weaponIcon.sprite = Inventory.instance.currentWeapon.icon;
+        if (Inventory.instance.currentWeapon != null)
+        {
+            weaponName.text = Inventory.instance.currentWeapon.name;
+            weaponIcon.sprite = Inventory.instance.currentWeapon.icon;
+        }
 
 	}
 }

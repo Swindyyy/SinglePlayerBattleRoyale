@@ -22,21 +22,27 @@ public class Weapon : MonoBehaviour
     // Use this for initialization
     public virtual void Start()
     {
-        weaponAnchor = transform.Find("WeaponAnchor").gameObject;
+        if (weaponAnchor == null)
+        {
+            weaponAnchor = transform.Find("WeaponAnchor").gameObject;
+        }
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        if (!isReadyToFire)
+        if (weaponItem != null)
         {
-            if (timeSinceLastFire > weaponItem.fireRate)
+            if (!isReadyToFire)
             {
-                isReadyToFire = true;
-            }
-            else
-            {
-                timeSinceLastFire += Time.deltaTime;
+                if (timeSinceLastFire > weaponItem.fireRate)
+                {
+                    isReadyToFire = true;
+                }
+                else
+                {
+                    timeSinceLastFire += Time.deltaTime;
+                }
             }
         }
     }

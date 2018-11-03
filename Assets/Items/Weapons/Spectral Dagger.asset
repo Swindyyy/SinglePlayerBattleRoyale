@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Spectral Dagger
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  objectMesh: {fileID: 4300000, guid: 9d0d902f71acfe646a46cb625f815a49, type: 3}
+  objectPrefab: {fileID: 0}
   dropRate: 0.3
   interactRadius: 0.3
   itemObject: {fileID: 0}
@@ -22,4 +22,4 @@ MonoBehaviour:
   weaponDamage: 33
   fireRate: 1
   timeToFireAfterReachingTarget: 0
-  isDefaultWeapon: 1
+  isDefaultWeapon: 0

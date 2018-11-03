@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Holy grenade
   icon: {fileID: 21300000, guid: 9d7c6e4896067aa4fa512a00f692ac1c, type: 3}
-  objectMesh: {fileID: 4300126, guid: 63742edd796d522458d772b44affdf9b, type: 3}
+  objectPrefab: {fileID: 0}
   dropRate: 1
   interactRadius: 0.3
   itemObject: {fileID: 0}
@@ -22,4 +22,4 @@ MonoBehaviour:
   weaponDamage: 30
   fireRate: 1
   timeToFireAfterReachingTarget: 0
-  isDefaultWeapon: 1
+  isDefaultWeapon: 0

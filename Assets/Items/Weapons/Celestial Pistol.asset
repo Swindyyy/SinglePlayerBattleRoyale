@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Celestial Pistol
   icon: {fileID: 21300000, guid: c03c72978d15ecb4d91060d3a10d14f0, type: 3}
-  objectMesh: {fileID: 4300000, guid: aed8c47425ab91f4eb06ce6fe47c3e4e, type: 3}
+  objectPrefab: {fileID: 0}
   dropRate: 2
   interactRadius: 0.3
   itemObject: {fileID: 0}
@@ -22,4 +22,4 @@ MonoBehaviour:
   weaponDamage: 50
   fireRate: 1
   timeToFireAfterReachingTarget: 0
-  isDefaultWeapon: 1
+  isDefaultWeapon: 0
