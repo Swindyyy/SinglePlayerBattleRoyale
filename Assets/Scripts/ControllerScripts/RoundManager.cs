@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class RoundManager : MonoBehaviour {
 
@@ -36,8 +37,15 @@ public class RoundManager : MonoBehaviour {
     [SerializeField]
     float dayNightSwitchTime = 1f;
 
+    [SerializeField]
+    PostProcessVolume nightTimePost;
+
+    [SerializeField]
+    PostProcessVolume dayTimePost;
+
     Vector3 currentFogScale;
     Vector3 targetFogScale;
+    Animator animator;
 
 
 	// Use this for initialization
@@ -50,6 +58,7 @@ public class RoundManager : MonoBehaviour {
         currentFogScale = fog.transform.localScale;
         Debug.Log("Initial fog scale: " + currentFogScale);
         targetFogScale = new Vector3(currentFogScale.x * currentWave.fogCoveragePercentage, currentFogScale.y, currentFogScale.z * currentWave.fogCoveragePercentage);
+        animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
@@ -78,7 +87,7 @@ public class RoundManager : MonoBehaviour {
         if(numOfEnemiesRemaining == 0 && !isDayTime && !enemySpawner.GetAreEnemiesSpawning())
         {
             isDayTime = true;
-            StartCoroutine(FadeInDay());
+            animator.SetTrigger("onDayStart");
         }
 	}
 
@@ -122,7 +131,7 @@ public class RoundManager : MonoBehaviour {
         enemySpawner.EnemiesToSpawn(currentWave.numOfFastEnemies, currentWave.numOfSlowEnemies);
         enemySpawner.SetAreEnemiesSpawning(true);
         isDayTime = false;
-        StartCoroutine(FadeInNight());
+        animator.SetTrigger("onNightStart");
 
         fog.SetActive(currentWave.isFogPresent);
         currentFogScale = fog.transform.localScale;
@@ -153,56 +162,4 @@ public class RoundManager : MonoBehaviour {
         return currentWave.fogDamage;
     }
 
-    IEnumerator FadeInNight()
-    {
-        float nightFadeStep = nightLightStrength / dayNightSwitchTime;
-        float lightFadeStep = dayLight.intensity / dayNightSwitchTime;
-        float timeCounter = 0f;
-
-        while (timeCounter <= dayNightSwitchTime)
-        {
-            if (nightLight.intensity <= nightLightStrength)
-            {
-                nightLight.intensity += nightFadeStep;
-
-            }
-
-            if (dayLight.intensity >= 0)
-            {
-                dayLight.intensity -= lightFadeStep;
-            }
-
-            yield return null;
-            timeCounter += Time.deltaTime;
-        }
-
-        nightLight.intensity = nightLightStrength;
-        dayLight.intensity = 0;
-    }
-
-    IEnumerator FadeInDay()
-    {
-        float nightFadeStep = nightLight.intensity / dayNightSwitchTime;
-        float lightFadeStep = dayLightStrength / dayNightSwitchTime;
-        float timeCounter = 0f;
-
-        while (timeCounter <= dayNightSwitchTime)
-        {
-            if (nightLight.intensity >= 0)
-            {
-                nightLight.intensity -= nightFadeStep;
-            }
-
-            if (dayLight.intensity <= dayLightStrength)
-            {
-                dayLight.intensity += lightFadeStep;
-            }
-
-            yield return null;
-            timeCounter += Time.deltaTime;
-        }
-
-        nightLight.intensity = 0;
-        dayLight.intensity = dayLightStrength;
-    }
 }  

@@ -823,9 +823,9 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1593620607367508}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 36ce08f4716c2fd459ffd55d5b968bc8, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c5ed9193af1507a43a6d7f1c08c4657c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -848,6 +848,8 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   lootToDrop: {fileID: 0}
+  ectoSpurt: {fileID: 4951732207284430, guid: 27e53f4a414a86a40b0320478db58816, type: 2}
+  yOffset: 1.5
 --- !u!114 &114332619552050970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -886,7 +888,7 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.29
-  m_Height: 1.06
+  m_Height: 1.27
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!137 &137417445212602524

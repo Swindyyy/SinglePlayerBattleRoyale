@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponPickUp : Interactable {
+public class WeaponPickUp : Interactable
+{
 
     public WeaponItem item;
 
@@ -17,9 +18,9 @@ public class WeaponPickUp : Interactable {
         base.Interact();
 
 
-            EquipWeapon();
-            Destroy(this.gameObject);
-            UIManager.instance.interactText.gameObject.SetActive(false);
+        EquipWeapon();
+        Destroy(this.gameObject);
+        UIManager.instance.interactText.gameObject.SetActive(false);
 
     }
 

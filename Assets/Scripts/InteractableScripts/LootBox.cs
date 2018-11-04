@@ -14,6 +14,8 @@ public class LootBox : Interactable {
     Vector3 offsetDirection;
 
 
+    Animator animator;
+
 	// Use this for initialization
 	public override void Start () {
         base.Start();
@@ -31,7 +33,8 @@ public class LootBox : Interactable {
             itemsToDrop.Add(itemToAdd);            
         }
 
-        offsetDirection = (offsetPoint1.transform.position - offsetPoint2.transform.position).normalized;        
+        offsetDirection = (offsetPoint1.transform.position - offsetPoint2.transform.position).normalized;
+        animator = GetComponent<Animator>();
 	}
 	
     public override void OnTriggerEnter(Collider other)
@@ -68,6 +71,7 @@ public class LootBox : Interactable {
                 item.CreateItem(transform.position + vectorOffset);
             }
 
+            animator.SetTrigger("isOpen");
             isInteractable = false;
             UIManager.instance.interactText.gameObject.SetActive(false);
         }

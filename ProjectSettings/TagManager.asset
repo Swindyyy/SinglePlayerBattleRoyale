@@ -11,6 +11,10 @@ TagManager:
   - EnemySpawnPoint
   - LootSpawnPoint
   - CameraAnchor
+  - GunGraphic
+  - DaggerGraphic
+  - GrenadeGraphic
+  - PostProcessing
   layers:
   - Default
   - TransparentFX

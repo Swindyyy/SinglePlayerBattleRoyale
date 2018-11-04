@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: 
   numOfFastEnemies: 0
-  numOfSlowEnemies: 3
+  numOfSlowEnemies: 1
   waveShrinkTime: 0
   fogDamage: 1
   dayLength: 45

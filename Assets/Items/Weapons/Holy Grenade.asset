@@ -13,13 +13,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Holy grenade
   icon: {fileID: 21300000, guid: 9d7c6e4896067aa4fa512a00f692ac1c, type: 3}
-  objectPrefab: {fileID: 0}
+  objectPrefab: {fileID: 1527533332875310, guid: 69d1594f7bb69ef499804f7c4a874c96,
+    type: 2}
   dropRate: 1
   interactRadius: 0.3
-  itemObject: {fileID: 0}
+  itemObject: {fileID: 1527533332875310, guid: 69d1594f7bb69ef499804f7c4a874c96, type: 2}
   description: Thou mayest blow Thine enemies to tiny bits in Thy mercy
   weaponRange: 6
-  weaponDamage: 30
-  fireRate: 1
+  weaponDamage: 100
+  fireRate: 5
   timeToFireAfterReachingTarget: 0
   isDefaultWeapon: 0
+  animItemTag: GrenadeGraphic
+  animLayerIndex: 2
+  isRangedWeapon: 1
+  projectileObject: {fileID: 1086890409123854, guid: d0680720f1efa2c4f94d62dab43a9f7d,
+    type: 2}
+  animationDelay: 0.3
+  projectileSpawnSpeed: 500

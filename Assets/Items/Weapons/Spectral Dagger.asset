@@ -13,13 +13,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Spectral Dagger
   icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  objectPrefab: {fileID: 0}
+  objectPrefab: {fileID: 1845637244572314, guid: 54939c4b319820244b051cfafacada28,
+    type: 2}
   dropRate: 0.3
   interactRadius: 0.3
   itemObject: {fileID: 0}
   description: Don't get too close to this enchant blade, else risk being hurt!
   weaponRange: 2
-  weaponDamage: 33
+  weaponDamage: 35
   fireRate: 1
   timeToFireAfterReachingTarget: 0
   isDefaultWeapon: 0
+  animItemTag: DaggerGraphic
+  animLayerIndex: 1
+  isRangedWeapon: 0
+  projectileObject: {fileID: 0}
+  projectileSpawnSpeed: 0

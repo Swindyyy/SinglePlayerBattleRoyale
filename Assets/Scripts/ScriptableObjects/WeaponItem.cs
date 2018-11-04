@@ -20,6 +20,24 @@ public class WeaponItem : Ingredient {
     [SerializeField]
     public bool isDefaultWeapon = true;
 
+    [SerializeField]
+    public string animItemTag;
+
+    [SerializeField]
+    public int animLayerIndex;
+
+    [SerializeField]
+    public bool isRangedWeapon = true;
+
+    [SerializeField]
+    public GameObject projectileObject;
+
+    [SerializeField]
+    public float animationDelay = 0.5f;
+
+    [SerializeField]
+    public float projectileSpawnSpeed;
+
     public override void CreateItem(Vector3 position)
     {
         base.CreateItem(position);

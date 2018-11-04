@@ -24,7 +24,7 @@ public class Weapon : MonoBehaviour
     {
         if (weaponAnchor == null)
         {
-            weaponAnchor = transform.Find("WeaponAnchor").gameObject;
+            weaponAnchor = GameObject.FindGameObjectWithTag("WeaponAnchor");
         }
     }
 

@@ -6,6 +6,8 @@ public class EnemyHealth : Health {
 
 
     public Ingredient lootToDrop;
+    public Transform ectoSpurt;
+    public float yOffset;
 
 
 	// Use this for initialization
@@ -30,6 +32,8 @@ public class EnemyHealth : Health {
             DropLoot();
             Destroy(gameObject);
         }
+
+        EctoSpurt();
     }
 
     public override void DropLoot()
@@ -41,5 +45,13 @@ public class EnemyHealth : Health {
 
             lootToDrop.CreateItem(transform.position);           
         }
+    }
+
+    void EctoSpurt()
+    {
+        Vector3 pos = transform.position;
+        pos.y += yOffset;
+        Transform spurt = Instantiate(ectoSpurt, transform.position, Quaternion.identity);
+        Destroy(spurt.gameObject, 5f);
     }
 }

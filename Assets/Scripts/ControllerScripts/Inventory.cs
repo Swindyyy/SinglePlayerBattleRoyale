@@ -101,11 +101,6 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        if (onWeaponChangedCallback != null)
-        {
-            onWeaponChangedCallback.Invoke();
-        }
-
         return true;
     }
 
@@ -124,6 +119,11 @@ public class Inventory : MonoBehaviour
     void EquipNewWeapon()
     {
         player.GetComponent<Weapon>().weaponItem = currentWeapon;
+
+        if (onWeaponChangedCallback != null)
+        {
+            onWeaponChangedCallback.Invoke();
+        }
     }
 
     public void DropItem(Ingredient itemToDrop)
@@ -132,10 +132,11 @@ public class Inventory : MonoBehaviour
         RemoveItem(itemToDrop);
     }
 
-
     public void DropWeapon(WeaponItem weaponToDrop)
     {
         weaponToDrop.CreateItem(player.transform.position);
+        GameObject.FindGameObjectWithTag(weaponToDrop.animItemTag).GetComponent<SkinnedMeshRenderer>().enabled = false;
+
     }
 
     public void RemoveItem(Ingredient itemToRemove)
@@ -163,7 +164,6 @@ public class Inventory : MonoBehaviour
         WeaponItem temp = currentWeapon;
         currentWeapon = offWeapon;
         offWeapon = temp;
-
         EquipNewWeapon();
     }
 
