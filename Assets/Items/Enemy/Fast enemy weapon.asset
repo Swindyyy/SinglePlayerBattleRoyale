@@ -13,11 +13,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: FastEnemyWeapon
   icon: {fileID: 0}
-  objectMesh: {fileID: 0}
+  objectPrefab: {fileID: 0}
   dropRate: 5
   interactRadius: 3
   itemObject: {fileID: 0}
+  description: Description
   weaponRange: 3
   weaponDamage: 5
   fireRate: 2
   timeToFireAfterReachingTarget: 3
+  isDefaultWeapon: 1
+  animItemTag: 
+  animLayerIndex: 0
+  isRangedWeapon: 1
+  projectileObject: {fileID: 1593453232278150, guid: bc995470f59a73448bfcf32dd69f4fd2,
+    type: 2}
+  animationDelay: 0.5
+  projectileSpawnSpeed: 100

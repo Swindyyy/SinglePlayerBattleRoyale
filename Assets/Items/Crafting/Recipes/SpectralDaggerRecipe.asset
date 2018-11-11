@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf364ce5dfd4a2642b2e23a5ef41987a, type: 3}
   m_Name: SpectralDaggerRecipe
   m_EditorClassIdentifier: 
-  itemsNeededToCraft:
-  - {fileID: 0}
-  - {fileID: 0}
+  ingredientsNeededToCraft:
+  - {fileID: 11400000, guid: 8cef457b03be3864384df217f53963c1, type: 2}
+  - {fileID: 11400000, guid: aca84c0e6910d5b47b1c5f5f4d06ba8b, type: 2}
   craftedItem: {fileID: 11400000, guid: 2cc9338565ce5574f9ad79e6695b4836, type: 2}

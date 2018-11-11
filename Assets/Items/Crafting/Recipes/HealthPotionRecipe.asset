@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: HealthPotionRecipe
   m_EditorClassIdentifier: 
   ingredientsNeededToCraft:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 4cdeab0713e0e554fa1891bf93fe4694, type: 2}
+  - {fileID: 11400000, guid: 37741fe9502fdbd4fbae724a23fd434e, type: 2}
   craftedItem: {fileID: 11400000, guid: e17ce5dc585f9b145a8c420ee550a64b, type: 2}

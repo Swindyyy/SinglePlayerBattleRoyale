@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4075722487292914}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: coffin_cntrl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,9 +35,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4473261040762468}
   - component: {fileID: 114590552152546436}
-  - component: {fileID: 135822054333496912}
   - component: {fileID: 65456998452212678}
-  m_Layer: 0
+  - component: {fileID: 136557148382867606}
+  - component: {fileID: 114313320060328194}
+  m_Layer: 12
   m_Name: LootChest
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -53,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4035367172417976}
   - component: {fileID: 108408796073054402}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4018832855799776}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: OffsetPoint2
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -83,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4356505711717828}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: OffsetPoint1
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -99,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4886362590551034}
   - component: {fileID: 137399772213804860}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +116,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4406753231630126}
   - component: {fileID: 95934536027191292}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: loot_coffin_closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4282501283315214}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4984529601904520}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: coffin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +163,7 @@ GameObject:
   - component: {fileID: 4281751969466150}
   - component: {fileID: 33037724339257840}
   - component: {fileID: 23466905495212642}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,16 +273,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281135194921228}
-  m_LocalRotation: {x: -0, y: -0.883926, z: -0, w: 0.46762702}
-  m_LocalPosition: {x: 29.943, y: 0.489, z: -34.441}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.88452095, z: -0, w: 0.4665005}
+  m_LocalPosition: {x: -5.122, y: 0.05, z: -6.932}
+  m_LocalScale: {x: 0.20000002, y: 0.2, z: 0.20000002}
   m_Children:
   - {fileID: 4356505711717828}
   - {fileID: 4018832855799776}
   - {fileID: 4282501283315214}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -34.274002, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -124.385, z: 0}
 --- !u!4 &4886362590551034
 Transform:
   m_ObjectHideFlags: 1
@@ -417,6 +418,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114313320060328194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281135194921228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 0
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!114 &114590552152546436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -437,8 +453,8 @@ MonoBehaviour:
   minNumberOfItemsToDrop: 2
   offsetPoint1: {fileID: 1426529964857074}
   offsetPoint2: {fileID: 1317456602141692}
---- !u!135 &135822054333496912
-SphereCollider:
+--- !u!136 &136557148382867606
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -446,9 +462,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.87
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.5
+  m_Height: 5.19
+  m_Direction: 2
+  m_Center: {x: -2.07, y: 0, z: 0}
 --- !u!137 &137399772213804860
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

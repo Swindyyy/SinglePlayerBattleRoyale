@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf364ce5dfd4a2642b2e23a5ef41987a, type: 3}
   m_Name: HolyGrenadeRecipe
   m_EditorClassIdentifier: 
-  itemsNeededToCraft:
-  - {fileID: 0}
-  - {fileID: 0}
+  ingredientsNeededToCraft:
+  - {fileID: 11400000, guid: 4cdeab0713e0e554fa1891bf93fe4694, type: 2}
+  - {fileID: 11400000, guid: f54a84a1512c7fe4694c67ca7b00a112, type: 2}
   craftedItem: {fileID: 11400000, guid: 32102849c90c4c44aaba257e6ee1bc94, type: 2}

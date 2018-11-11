@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Name: Metal blade
   m_EditorClassIdentifier: 
   name: Metal Blade
-  icon: {fileID: 0}
-  objectMesh: {fileID: 0}
+  icon: {fileID: 21300000, guid: 19bcfc2feb0d8be4c897a69ce7c5f825, type: 3}
+  objectPrefab: {fileID: 1335306278503458, guid: b7da85717477bcb449e6f7ab221ce833,
+    type: 2}
   dropRate: 5
   interactRadius: 0.3
   itemObject: {fileID: 0}

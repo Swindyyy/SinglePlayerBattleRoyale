@@ -26,6 +26,11 @@ public class InventoryUI : MonoBehaviour {
         {
             inventoryUI.SetActive(!inventoryUI.activeSelf);
         }
+
+        if(Input.GetButtonDown("Cancel"))
+        {
+            inventoryUI.SetActive(false);
+        }
 	}
 
     void UpdateUI()

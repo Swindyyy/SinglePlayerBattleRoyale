@@ -17,11 +17,11 @@ public class Ingredient : ScriptableObject {
 
     public virtual void CreateItem(Vector3 position)
     {
-        if (itemObject != null)
+        if (objectPrefab != null)
         {
-            itemObject = Instantiate(objectPrefab, position, Quaternion.identity);
-            itemObject.name = name;
-            CapsuleCollider interactionCollider = itemObject.GetComponent<CapsuleCollider>();
+            GameObject spawnedItem = Instantiate(objectPrefab, position, Quaternion.identity);
+            spawnedItem.name = name;
+            CapsuleCollider interactionCollider = spawnedItem.GetComponent<CapsuleCollider>();
             interactionCollider.radius = interactRadius;
         }
     }

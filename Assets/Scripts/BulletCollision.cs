@@ -7,7 +7,7 @@ public class BulletCollision : MonoBehaviour {
     public Transform smokePuff;
     public Transform ectoPuff;
     public int damage;
-
+    public bool isPlayer;
 
     void OnCollisionEnter(Collision coll)
     {
@@ -16,19 +16,39 @@ public class BulletCollision : MonoBehaviour {
         Vector3 pos = contact.point;
         Transform particle;
 
-        if (!coll.gameObject.CompareTag("Player"))
+
+        if (isPlayer)
         {
-            if (coll.gameObject.CompareTag("Enemy"))
+            if (!coll.gameObject.CompareTag("Player"))
             {
-                coll.gameObject.GetComponent<EnemyHealth>().DealDamage(damage);
+                if (coll.gameObject.CompareTag("Enemy"))
+                {
+                    coll.gameObject.GetComponent<EnemyHealth>().DealDamage(damage);
+                }
+                else
+                {
+                    particle = Instantiate(smokePuff, pos, rotation);
+                    Destroy(particle.gameObject, 5f);
+                }
+
+                Destroy(this.gameObject);
             }
-            else
+        } else
+        {
+            if (!coll.gameObject.CompareTag("Enemy"))
             {
-                particle = Instantiate(smokePuff, pos, rotation);
-                Destroy(particle.gameObject, 5f);
+                if (coll.gameObject.CompareTag("Player"))
+                {
+                    coll.gameObject.GetComponent<PlayerHealth>().DealDamage(damage);
+                }
+                else
+                {
+                    particle = Instantiate(smokePuff, pos, rotation);
+                    Destroy(particle.gameObject, 5f);
+                }
+
+                Destroy(this.gameObject);
             }
-            
-            Destroy(this.gameObject);
         }
     }
 }

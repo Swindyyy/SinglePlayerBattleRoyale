@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Celestial Pistol
   m_EditorClassIdentifier: 
   name: Celestial Pistol
-  icon: {fileID: 21300000, guid: c03c72978d15ecb4d91060d3a10d14f0, type: 3}
+  icon: {fileID: 21300000, guid: 7e517503dc01977459a647b3d4e3d9b5, type: 3}
   objectPrefab: {fileID: 1316964355973116, guid: e594bc0d89f44b34b9f5f92b1ba6fb1a,
     type: 2}
   dropRate: 2

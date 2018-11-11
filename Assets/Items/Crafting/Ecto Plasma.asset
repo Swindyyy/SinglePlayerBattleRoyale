@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Name: Ecto Plasma
   m_EditorClassIdentifier: 
   name: Ecto Plasma
-  icon: {fileID: 21300000, guid: 9866a92691696b346901281f2b329034, type: 3}
-  objectMesh: {fileID: 4300002, guid: 34624edaccd9d704a95ed404d919b492, type: 3}
-  dropRate: 1
+  icon: {fileID: 21300000, guid: 043533ffe36471545a01e657a3651559, type: 3}
+  objectPrefab: {fileID: 1530162514300470, guid: 615d62a8bc7ca584ca42c2bd2e12b22f,
+    type: 2}
+  dropRate: 5
   interactRadius: 0.3
   itemObject: {fileID: 0}
   description: Green gloop

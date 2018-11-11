@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Holy Grenade
   m_EditorClassIdentifier: 
   name: Holy grenade
-  icon: {fileID: 21300000, guid: 9d7c6e4896067aa4fa512a00f692ac1c, type: 3}
+  icon: {fileID: 21300000, guid: bc169d1aad270134587dcc6d22fca211, type: 3}
   objectPrefab: {fileID: 1527533332875310, guid: 69d1594f7bb69ef499804f7c4a874c96,
     type: 2}
   dropRate: 1

@@ -5,6 +5,22 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class RoundManager : MonoBehaviour {
 
+    public static RoundManager instance;
+    #region singleton
+
+    void Awake()
+    {
+        if(instance != null)
+        {
+            Destroy(this);
+            return;
+        }
+
+        instance = this;
+    }
+
+    #endregion
+
     bool isDayTime = false;
 
     [SerializeField]
@@ -46,6 +62,7 @@ public class RoundManager : MonoBehaviour {
     Vector3 currentFogScale;
     Vector3 targetFogScale;
     Animator animator;
+    bool isGameOver = false;
 
 
 	// Use this for initialization
@@ -121,6 +138,7 @@ public class RoundManager : MonoBehaviour {
 
         if(waveCounter > waveList.Count)
         {
+            isGameOver = true;
             return;
         }
 
@@ -160,6 +178,11 @@ public class RoundManager : MonoBehaviour {
     public int GetCurrentWaveDamage()
     {
         return currentWave.fogDamage;
+    }
+
+    public bool IsGameOver()
+    {
+        return isGameOver;
     }
 
 }  

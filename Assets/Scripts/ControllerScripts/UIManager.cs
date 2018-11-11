@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class UIManager : MonoBehaviour {
@@ -37,6 +38,15 @@ public class UIManager : MonoBehaviour {
     [SerializeField]
     public Image weaponIcon;
 
+    [SerializeField]
+    public GameObject pauseScreen;
+
+    [SerializeField]
+    public GameObject deathScreen;
+
+    [SerializeField]
+    public GameObject endGameScreen;
+
     Color transparent;
     Color opaque;
 
@@ -66,5 +76,41 @@ public class UIManager : MonoBehaviour {
             weaponIcon.color = transparent;
         }
 
+        if(Input.GetButtonDown("Cancel"))
+        {
+            TogglePause();            
+        }     
+       
+        endGameScreen.SetActive(RoundManager.instance.IsGameOver());
+
+        if(playerHealth.currentHealth == 0)
+        {
+            deathScreen.SetActive(true);
+            Time.timeScale = 0f;
+        }
 	}
+
+    public void TogglePause()
+    {
+        pauseScreen.SetActive(!pauseScreen.activeSelf);
+
+        if (pauseScreen.activeSelf)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

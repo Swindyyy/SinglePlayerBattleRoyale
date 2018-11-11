@@ -15,7 +15,7 @@ public class Forge : Interactable {
         base.Interact();
         Debug.Log("Interacted");
 
-        ForgeUIScript.instance.EnableForgeUI();
+        ForgeUIScript.instance.ToggleForgeUI();
     }
 
     public override void OnTriggerEnter(Collider other)

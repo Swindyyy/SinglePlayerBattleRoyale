@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ForgeUIScript : MonoBehaviour {
+public class ForgeUIScript : MonoBehaviour
+{
 
     #region singleton
     public static ForgeUIScript instance;
 
     void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Destroy(this);
         }
@@ -42,11 +43,12 @@ public class ForgeUIScript : MonoBehaviour {
     bool canPlayerForgeItem = false;
     List<GameObject> ingredientIcons = new List<GameObject>();
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         recipes = ItemManager.instance.GetRecipesInGame();
-	}
-	
+    }
+
     void Update()
     {
         if (forgeObject.activeSelf)
@@ -54,18 +56,21 @@ public class ForgeUIScript : MonoBehaviour {
             if (!CheckIfIngredientsInInventory())
             {
                 itemToForgeButton.interactable = false;
+            } else
+            {
+                itemToForgeButton.interactable = true;
             }
         }
     }
 
-	public void OnNextButtonPress()
+    public void OnNextButtonPress()
     {
         currentRecipeCounter += 1;
         currentRecipe = recipes[currentRecipeCounter];
         backButton.interactable = true;
-        itemCounter.text = currentRecipeCounter+1 + "/" + recipes.Count;
+        itemCounter.text = currentRecipeCounter + 1 + "/" + recipes.Count;
 
-        if (currentRecipeCounter+1 >= recipes.Count)
+        if (currentRecipeCounter + 1 >= recipes.Count)
         {
             forwardButton.interactable = false;
         }
@@ -78,7 +83,7 @@ public class ForgeUIScript : MonoBehaviour {
         currentRecipeCounter -= 1;
         currentRecipe = recipes[currentRecipeCounter];
         forwardButton.interactable = true;
-        itemCounter.text = currentRecipeCounter+1 + "/" + recipes.Count;
+        itemCounter.text = currentRecipeCounter + 1 + "/" + recipes.Count;
 
         if (currentRecipeCounter + 1 <= 1)
         {
@@ -89,9 +94,21 @@ public class ForgeUIScript : MonoBehaviour {
     }
 
     public void OnForgeButtonPress()
-    { 
+    {
         CraftItem(currentRecipe.craftedItem);
         RemoveIngredients();
+    }
+
+    public void ToggleForgeUI()
+    {
+        if (forgeObject.activeSelf)
+        {
+            DisableForgeUI();
+        }
+        else
+        {
+            EnableForgeUI();
+        }
     }
 
     public void EnableForgeUI()
@@ -99,9 +116,9 @@ public class ForgeUIScript : MonoBehaviour {
         forgeObject.SetActive(true);
         currentRecipeCounter = 0;
         backButton.interactable = false;
-        itemCounter.text = currentRecipeCounter+1 + "/" + recipes.Count;
+        itemCounter.text = currentRecipeCounter + 1 + "/" + recipes.Count;
 
-        if(recipes.Count <= 1)
+        if (recipes.Count <= 1)
         {
             forwardButton.interactable = false;
         }
@@ -121,18 +138,18 @@ public class ForgeUIScript : MonoBehaviour {
         itemToForgeDescription.text = currentRecipe.craftedItem.description;
         itemToForgeIcon.sprite = currentRecipe.craftedItem.icon;
 
-        foreach(GameObject iconObject in ingredientIcons)
+        foreach (GameObject iconObject in ingredientIcons)
         {
             Destroy(iconObject);
         }
 
         ingredientIcons = new List<GameObject>();
 
-        foreach(Ingredient item in currentRecipe.ingredientsNeededToCraft)
+        foreach (Ingredient item in currentRecipe.ingredientsNeededToCraft)
         {
             GameObject icon = Instantiate(forgeIconTemplate);
             ingredientIcons.Add(icon);
-            icon.transform.parent = forgeIngredientIconObject.transform;
+            icon.transform.SetParent(forgeIngredientIconObject.transform,false);
             icon.GetComponent<Image>().sprite = item.icon;
         }
     }
@@ -164,9 +181,9 @@ public class ForgeUIScript : MonoBehaviour {
     {
         bool isInInventory = true;
 
-        foreach(Ingredient ingredient in currentRecipe.ingredientsNeededToCraft)
+        foreach (Ingredient ingredient in currentRecipe.ingredientsNeededToCraft)
         {
-            if(!Inventory.instance.items.Contains(ingredient))
+            if (!Inventory.instance.items.Contains(ingredient))
             {
                 isInInventory = false;
             }

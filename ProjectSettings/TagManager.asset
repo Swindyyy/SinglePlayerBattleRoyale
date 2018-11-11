@@ -25,10 +25,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Walls
+  - Player
+  - Enemy
+  - NavMeshIgnore
   - 
   - 
   - 

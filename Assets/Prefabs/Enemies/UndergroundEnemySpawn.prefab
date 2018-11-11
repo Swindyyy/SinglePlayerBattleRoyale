@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4579843532662870}
   - component: {fileID: 33486040569730462}
   - component: {fileID: 23262964001833356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: bottom(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4606493442709396}
   - component: {fileID: 108877195594032378}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,7 +52,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4283033245479526}
-  m_Layer: 0
+  - component: {fileID: 114016485300827258}
+  m_Layer: 9
   m_Name: SurfaceObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4003523537901896}
   - component: {fileID: 114502954423289774}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NavMeshLink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +87,7 @@ GameObject:
   - component: {fileID: 33457949499021858}
   - component: {fileID: 23817211571551796}
   - component: {fileID: 64648831832086958}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +104,7 @@ GameObject:
   - component: {fileID: 4194216722545864}
   - component: {fileID: 114056132068067786}
   - component: {fileID: 136824085182013102}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: EnemySpawnPoint
   m_TagString: EnemySpawnPoint
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -119,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000597598654664}
   - component: {fileID: 95973161997964794}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: loot_coffin_closed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +153,7 @@ GameObject:
   - component: {fileID: 33473716515940230}
   - component: {fileID: 23369562899298204}
   - component: {fileID: 64622771372937668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,15 +223,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618293618562134}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.1, y: 0, z: 20.5}
+  m_LocalRotation: {x: -0, y: -0.45827046, z: -0, w: 0.8888128}
+  m_LocalPosition: {x: 15.24, y: 0.49622065, z: -39.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4283033245479526}
   - {fileID: 4194216722545864}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -54.551003, z: 0}
 --- !u!4 &4283033245479526
 Transform:
   m_ObjectHideFlags: 1
@@ -277,13 +278,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1049756502250368}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.70710707, y: -0, z: 0.000000029802326, w: 0.7071066}
+  m_LocalPosition: {x: -0, y: 5.792, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4000597598654664}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90.00001, y: 0, z: 0}
 --- !u!23 &23262964001833356
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -464,11 +465,11 @@ Light:
   m_GameObject: {fileID: 1049756502250368}
   m_Enabled: 1
   serializedVersion: 8
-  m_Type: 2
+  m_Type: 0
   m_Color: {r: 0.2028302, g: 0.87492186, b: 1, a: 1}
-  m_Intensity: 138.59
-  m_Range: 2.01
-  m_SpotAngle: 30
+  m_Intensity: 25.39
+  m_Range: 6.08
+  m_SpotAngle: 57.3
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -493,6 +494,21 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114016485300827258
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087600574568194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 0
+  m_Area: 0
+  m_IgnoreFromBuild: 1
+  m_AffectedAgents: ffffffff
 --- !u!114 &114056132068067786
 MonoBehaviour:
   m_ObjectHideFlags: 1

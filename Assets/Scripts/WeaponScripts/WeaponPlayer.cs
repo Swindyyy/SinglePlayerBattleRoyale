@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class WeaponPlayer : Weapon
 {
     public Transform ectoPlasmaSpurt;
     public float knockBackStrength = 5f;
-    public float knockBackRange = 5f;
+
     public float knockBackDamage = 5f;
     public float knockBackCooldown = 3f;
     public float knockBackAnimCooldown = 0.5f;
+    public float meleeAngle = 90f;
+    public float meleeRange = 5f;
 
     public bool isAltFireReady = true;
     float timeSinceLastAltFire = 0f;
@@ -24,7 +27,7 @@ public class WeaponPlayer : Weapon
     {
         base.Update();
 
-        if (Input.GetButtonDown("Fire1") && weaponItem != null)
+        if (Input.GetButtonDown("Fire1") && weaponItem != null && !EventSystem.current.IsPointerOverGameObject())
         {
             Invoke("Fire", weaponItem.animationDelay);
         }
@@ -79,6 +82,7 @@ public class WeaponPlayer : Weapon
 
                 if (bc != null) {
                     bc.damage = weaponItem.weaponDamage;
+                    bc.isPlayer = true;
                 }else
                 {
                     GrenadeTimer gt = projectile.GetComponent<GrenadeTimer>();
@@ -94,7 +98,7 @@ public class WeaponPlayer : Weapon
     {
         if (isAltFireReady)
         {
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            List<GameObject> enemies = EnemiesInMeleeRange();
             foreach (GameObject enemy in enemies)
             {
 
@@ -103,7 +107,7 @@ public class WeaponPlayer : Weapon
 
                 float distanceToPlayer = Mathf.Abs(Vector2.Distance(playerXz, enemyXz));
                 Debug.Log("Distance to player: " + distanceToPlayer);
-                if (distanceToPlayer <= knockBackRange)
+                if (distanceToPlayer <= meleeRange)
                 {
                     Vector2 forceDir = -(playerXz - enemyXz).normalized;
                     Vector3 forceDirVector3 = new Vector3(forceDir.x, 0, forceDir.y);
@@ -114,5 +118,39 @@ public class WeaponPlayer : Weapon
             isAltFireReady = false;
             timeSinceLastAltFire = 0f;
         }
+    }
+
+    List<GameObject> EnemiesInMeleeRange()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        List<GameObject> enemiesInRange = new List<GameObject>();
+
+        foreach (GameObject enemy in enemies)
+        {
+            Vector2 playerXz = new Vector2(transform.position.x, transform.position.z);
+            Vector2 enemyXz = new Vector2(enemy.transform.position.x, enemy.transform.position.z);
+            Vector2 dirToEnemy = enemyXz - playerXz;
+            dirToEnemy = dirToEnemy.normalized;
+
+            float angleFromPlayer = Vector2.Angle(playerXz, enemyXz);
+
+            float distanceToPlayer = Mathf.Abs(Vector2.Distance(playerXz, enemyXz));
+            //float angleFromPlayer = Vector2.Angle(playerXz, (enemyXz - playerXz)) + transform.eulerAngles.y;
+            bool isInHitAngle = false;
+
+            if((angleFromPlayer - meleeAngle/2) <= meleeAngle || (angleFromPlayer + meleeAngle/2) >= meleeAngle)
+            {
+                isInHitAngle = true;
+            }
+
+            if(isInHitAngle && distanceToPlayer <= meleeRange)
+            {
+                enemiesInRange.Add(enemy);
+            }
+
+            Debug.Log("Angle from player is :" + angleFromPlayer);
+        }
+
+        return enemiesInRange;
     }
 }

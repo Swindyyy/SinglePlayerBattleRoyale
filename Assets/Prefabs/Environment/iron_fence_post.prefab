@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4025520968392790}
   - component: {fileID: 33541515697698582}
   - component: {fileID: 23135281326220196}
+  - component: {fileID: 64288433652356956}
   m_Layer: 0
   m_Name: iron_fence_post
   m_TagString: Untagged
@@ -82,4 +83,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1497290496543376}
+  m_Mesh: {fileID: 4300000, guid: b84cf9fa163471948ad76ac7bedb33ce, type: 3}
+--- !u!64 &64288433652356956
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497290496543376}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b84cf9fa163471948ad76ac7bedb33ce, type: 3}

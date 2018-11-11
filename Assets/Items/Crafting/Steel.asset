@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Name: Steel
   m_EditorClassIdentifier: 
   name: Steel
-  icon: {fileID: 0}
-  objectMesh: {fileID: 0}
+  icon: {fileID: 21300000, guid: b508537ee2c7ca24690ccc8b6d353dff, type: 3}
+  objectPrefab: {fileID: 1624403222066030, guid: 2ffc3cee8c811094db38b71c58bc3b00,
+    type: 2}
   dropRate: 5
   interactRadius: 0.3
   itemObject: {fileID: 0}

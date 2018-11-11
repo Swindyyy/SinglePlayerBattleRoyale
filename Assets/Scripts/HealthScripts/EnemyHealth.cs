@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : Health {
 
-
+    public Slider health;
     public Ingredient lootToDrop;
     public Transform ectoSpurt;
     public float yOffset;
@@ -17,7 +18,7 @@ public class EnemyHealth : Health {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        health.value = currentHealth;
 	}
 
     public override void DealDamage(int _damage)

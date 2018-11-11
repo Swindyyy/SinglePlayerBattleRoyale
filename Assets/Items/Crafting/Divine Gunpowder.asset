@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Name: Divine Gunpowder
   m_EditorClassIdentifier: 
   name: Divine Gunpowder
-  icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
-  objectMesh: {fileID: 4300020, guid: e8b2acfa5e7595c4bb8b77f6d70dc36a, type: 3}
+  icon: {fileID: 21300000, guid: 725f184806c3d994babe04c8b09e560e, type: 3}
+  objectPrefab: {fileID: 1462567067642906, guid: f0215f17881afee40a309deac572250b,
+    type: 2}
   dropRate: 1
   interactRadius: 0.3
   itemObject: {fileID: 0}

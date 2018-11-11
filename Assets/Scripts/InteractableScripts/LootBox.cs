@@ -34,7 +34,7 @@ public class LootBox : Interactable {
         }
 
         offsetDirection = (offsetPoint1.transform.position - offsetPoint2.transform.position).normalized;
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
 	}
 	
     public override void OnTriggerEnter(Collider other)

@@ -42,7 +42,6 @@ public class WeaponPickUp : Interactable
         if (other.CompareTag("Player"))
         {
             UIManager.instance.interactText.gameObject.SetActive(false);
-            Inventory.instance.SetCurrentFloorItem(null);
         }
     }
 

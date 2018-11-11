@@ -38,6 +38,9 @@ public class WeaponItem : Ingredient {
     [SerializeField]
     public float projectileSpawnSpeed;
 
+    [SerializeField]
+    public AudioClip attackNoise;
+
     public override void CreateItem(Vector3 position)
     {
         base.CreateItem(position);
